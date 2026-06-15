@@ -1,0 +1,7 @@
+venv/
+media_root2/
+static_root2/
+__pycache__/
+*.pyc
+*.log
+.env
