@@ -94,10 +94,10 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'uromijdpci-web'),
-        'USER': os.getenv('DB_USER', 'root'),
-        'PASSWORD': 'precious',
-        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'NAME': os.getenv('DB_NAME', 'uromijdpci'),
+        'USER': os.getenv('DB_USER', 'gope'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'precious'),
+        'HOST': os.getenv('DB_HOST', 'uromijdpci_db'),
         'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
