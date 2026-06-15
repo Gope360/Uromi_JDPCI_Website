@@ -1,0 +1,53 @@
+{% extends "Events/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-xxl bg-white p-0">
+        {% include "Events/spinner.html" %}
+
+
+        {% include "Events/navbar.html" %}
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 5px;">
+            <div class="container">
+                <div class="row g-2">
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Our Clients Say!</h1>
+                    <p>Your feedback helps us improve and grow. Here's what our clients have to say about us.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    {% for testimonial in testimonials %}
+                        <div class="testimonial-item bg-light rounded p-3">
+                            <div class="bg-white border rounded p-4">
+                                <p>{{ testimonial.text }}</p>
+                                <div class="d-flex align-items-center">
+                                    {% if testimonial.image %}
+                                        <img class="img-fluid flex-shrink-0 rounded" src="{{ testimonial.image.url }}" style="width: 45px; height: 45px;">
+                                    {% else %}
+                                        <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/default-avatar.png' %}" style="width: 45px; height: 45px;">
+                                    {% endif %}
+                                    <div class="ps-3">
+                                        <h6 class="fw-bold mb-1">{{ testimonial.name }}</h6>
+                                        <small>{{ testimonial.profession }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+        
+    </div>
+    {% include "Events/copyright.html" %}
+{% endblock content %}

@@ -1,0 +1,173 @@
+{% extends "Events/base2.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-xxl bg-white p-0">
+        {% include "Events/spinner.html" %}
+
+
+        {% include "Events/navbar.html" %}
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-success mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 5px;">
+            <div class="container">
+                <div class="row g-2">
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Article List Start -->
+        <!-- Featured Article Start -->
+        <section class="featured">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% if most_recent_article %}
+                        <article class="featured-post">
+                            <div class="featured-post-content">
+                                <div class="featured-post-author">
+                                    {% if most_recent_article.author_profile_picture %}
+                                        <img src="{{ most_recent_article.author_profile_picture.url }}" alt="{{ most_recent_article.author }}" style="width: 50px; height: 50px; object-fit: cover;">
+                                    {% else %}
+                                        <img src="{% static 'images/default_author.png' %}" alt="Default Author" style="width: 50px; height: 50px; object-fit: cover;">
+                                    {% endif %}
+                                    <p>By <span>{{ most_recent_article.author }}</span></p>
+                                </div>
+                                <a href="{% url 'article_detail' most_recent_article.slug %}" class="featured-post-title">
+                                    {{ most_recent_article.title }}
+                                </a>
+                                <ul class="featured-post-meta">
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        {{ most_recent_article.date|date:"F d, Y" }} - {{ most_recent_article.get_read_time }} min read
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="featured-post-thumb">
+                                <img src="{{ most_recent_article.image.url }}" alt="{{ most_recent_article.title }}" style="width: 560px; height: 350px; object-fit: cover;">
+                            </div>
+                        </article>
+                        {% else %}
+                            <p>No recent article available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Article End -->
+
+          <section class="blog">
+            <div class="container">
+              <div class="row">
+                <!-- Article List End -->
+                <div class="col-lg-8">
+                    <div class="blog-section-title">
+                        <h2>Articles</h2>
+                        <p>Explore our collection of articles. Learn more about various topics and insights from our experts.</p>
+                    </div>
+                    {% for article in articles %}
+                    <article class="blog-post wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="blog-post-thumb">
+                            <img src="{{ article.image.url }}" alt="blog-thum" style="width: 100%; height: 220px; object-fit: cover;">
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-tag">
+                                <a class="bg-success" href="category.html">Category</a>  <!-- Replace with actual category if applicable -->
+                            </div>
+                            <div class="blog-post-title ">
+                                <a href="{% url 'article_detail' article.slug %}">{{ article.title }}</a>
+                            </div>
+                            <div class="blog-post-meta">
+                                <ul>
+                                    <li>By <a href="#">{{ article.author }}</a></li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        {{ article.date|date:"F d, Y" }} - {{ article.get_read_time }} min read
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>{{ article.brief }}</p>
+                            <a href="{% url 'article_detail' article.slug %}" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </article>
+                    {% empty %}
+                    <p>No articles available at the moment.</p>
+                    {% endfor %}
+                    
+                    <!-- Pagination -->
+                    <div class="blog-post-pagination">
+                        <nav aria-label="Page navigation example" class="nav-bg">
+                            <ul class="pagination">
+                                {% if articles.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ articles.previous_page_number }}" aria-label="Previous">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% for num in articles.paginator.page_range %}
+                                <li class="page-item {% if articles.number == num %}active{% endif %}">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                                {% endfor %}
+                                {% if articles.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ articles.next_page_number }}" aria-label="Next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Article List End -->
+                <div class="col-lg-4">
+                  <div class="blog-post-widget">
+                    <div class="latest-widget-title">
+                      <h2 class="text-success" >Trending post</h2>
+                    </div>
+                    <!-- Most Viewed Articles Start -->
+                    {% for article in most_viewed_articles %}
+                    <div class="latest-widget">
+                        <div class="latest-widget-thum">
+                            <a href="{% url 'article_detail' article.slug %}">
+                                <img src="{{ article.image.url }}" alt="{{ article.title }}" style="width: 100px; height: 80px; object-fit: cover;" />
+                            </a>
+                            {% comment %} <div class="icon">
+                                <a href="{% url 'article_detail' article.slug %}">
+                                    <img src="images/blog/icon.svg" alt="icon" />
+                                </a>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="latest-widget-content">
+                            <div class="content-title">
+                                <a href="{% url 'article_detail' article.slug %}">{{ article.title }}</a>
+                            </div>
+                            <div class="content-meta">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        {{ article.date|date:"F d, Y" }} - {{ article.get_read_time }} min read
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No most viewed articles available at the moment.</p>
+                    {% endfor %}
+                    <!-- Most Viewed Articles End -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+        <!-- Article List End -->
+
+    </div>
+    {% include "Events/copyright.html" %}
+    {% endblock content %}

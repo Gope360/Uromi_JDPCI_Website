@@ -1,0 +1,86 @@
+{% extends "Events/base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% load compress %}
+
+{% block content %}
+        <div class="container-xxl bg-white p-0">
+            {% include "Events/navbar.html" %}
+
+            <!-- Search Start -->
+            <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 5px;">
+            <div class="container">
+                <div class="row g-2">
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        
+        <!-- Programs List Start -->
+            <div id="events" class="container-fluid py-5">
+                <div class="container-fluid d-flex flex-column px-0 px-sm-5">
+                    <div class="bg-light rounded p-3">
+                        <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                            <div class="row g-5 pt-1 align-items-center">
+                                <div class="mx-auto mb-0 pb-0 text-center" style="max-width: 1020px;">
+                                    <h3 class="mb-2 display-5 fs-3">Programs</h3>
+                                    <h3 class="mb-4 section-title">Overview of Key Programs and Initiatives</h3>
+                                    <p class="mb-0" style="text-align: justify;">
+                                        Uromi JDPCI runs a wide range of programs that aim to create lasting positive impacts in various sectors, including health, livelihood support, human rights, and more. Here is a summary of our main programs:
+                                    </p>
+                                </div>
+                        
+                                <!-- Context and Operating Environment Section -->
+                                <div class="container mt-2">
+                                    <div class="mx-auto mt-0" style="max-width: 1000px; text-align: justify;">
+                                        <h5 class="mb-2 section-title fs-6 fs-md-3">Context and Operating Environment of Uromi JDPCI</h5>
+                                        <p class="mb-1">
+                                            A critical analysis of the operating environment is essential when conducting a strategy review and planning in order to move the organisation to the next level of growth and development. This includes an x-ray of both the internal and external environments in which the organisation exists and carries out its work. This informed the comprehensive review of the organisational structure and the operating environment of Uromi JDPCI in the following domains:
+                                        </p>
+                                        <ul class="mx-auto" style="max-width: 1020px;">
+                                            <li class="py-1">Global, national, and local situations and trends in the thematic areas of Uromi JDPCI</li>
+                                            <li class="py-1">Opportunities and Challenges</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="container-fluid bg-primary mb-1 wow fadeIn" data-wow-delay="0.1s" style="padding: 1px; max-width:900px;">
+                                    <div class="container">
+                                        <div class="row g-2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid d-flex flex-column px-0 px-sm-5">
+                                    <div class="row g-5 mx-1 mb-3 packages-carousel owl-carousel">
+                                        {% for program in programs %}
+                                        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.{{ forloop.counter }}s">
+                                            <div class="packages-item">
+                                                <div class="packages-img">
+                                                    <img src="{{ program.image.url }}" class="img-fluid rounded-top" alt="{{ program.title }}" style="width: 400px; height: 200px; object-fit: cover;">
+                                                
+                                                </div>
+                                                <div class="packages-content bg-light p-4">
+                                                    <h4 class="section-title fs-5">{{ program.title }}</h4>
+                                                    <p>{{ program.description|truncatechars:150 }}</p>
+                                                </div>
+                                                <div class="row bg-primary rounded-bottom mx-0">
+                                                    <div class="col-12 text-center px-0">
+                                                        <a href="{% url "donation" %}" class="btn-hover btn text-white py-2 px-4">Support Us</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Programs List End -->
+    </div>
+
+{% include "Events/copyright.html" %}
+{% endblock content %}

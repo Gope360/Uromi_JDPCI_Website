@@ -1,0 +1,71 @@
+{% extends "Events/base2.html" %}
+{% load static %}
+{% block content %}
+{% include "Events/navbar.html" %}
+    <main>
+    <!-- services-section start -->
+    <section class="services-section p-t-100 p-b-120">
+        <div class="container">
+            <div class="row justify-content-center text-center m-b-50 m-b-xs-40">
+                <div class="col-xl-8">
+                    <div class="common-subtitle" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                        <img alt="icon-1" src="{% static 'img/icon-2.svg' %}"> <!-- Updated with static tag -->
+                        <span>Our Events</span>
+                    </div>
+                    <div class="common-title m-b-0" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                        <h2>Recent Events</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                {% for event in page_obj %}
+                <div class="col-xl-6 m-b-30">
+                    <div class="project-card style-2 style-service">
+                        <div class="thumb">
+                            <a href="#"><img alt="{{ event.title }}" src="{{ event.image.url }}"></a>
+                            <div class="tag">
+                                <p>{{ event.start_date|date:"l jS F Y" }}</p>
+                            </div>
+                            <div class="content">
+                                <h5>{{ event.title }}</h5>
+                                <p>{{ event.description|truncatewords:20 }}</p>
+                                <div class="join-us">
+                                    <a class='e-primary-btn has-icon' href='#'>Read More <span class="icon-wrap"><span class="icon"><i class="fa-solid fa-arrow-right"></i> </span></span></a>  <!-- Replaced ri-arrow-right-line -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row justify-content-center text-center m-t-20">
+                <div class="col-xl-6">
+                    <div class="project-pagination">
+                        <ul>
+                            {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-arrow-left"></i></a></li>  <!-- Replaced ri-arrow-left-line -->
+                            {% endif %}
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+                                {% else %}
+                                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                            <li class="icon"><a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-arrow-right"></i></a></li>  <!-- Replaced ri-arrow-right-line -->
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services-section end -->
+    </main>
+{% include "Events/copyright.html" %}
+{% endblock content %}
+ 
+{% comment %} {% include "Events/script3.html" %} {% endcomment %}

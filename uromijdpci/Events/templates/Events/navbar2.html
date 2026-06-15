@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="container-fluid position-relative py-4 my-0 ">
+    <nav class="navbar navbar2 navbar-expand-lg sticky-top shadow-sm navbar-light px-4 pb-5 px-lg-5 py-lg-4">
+        <a href="/" class="navbar-brand p-0">
+            <!-- <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Travela</h1> -->
+            <img src="{% static "img/uromijdpci-logo.png" %}" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/#about" class="nav-item nav-link">About</a>
+                {% comment %} <a href="#projects" class="nav-item nav-link">Projects</a> {% endcomment %}
+                <a href="/#thematic-area" class="nav-item nav-link">Thematic Areas</a>
+                <a href="{% url "newsletter" %}" class="nav-item nav-link">Newsletters</a>
+                <div class="dropdown">
+                    <a class="dropdown-toggle nav-item nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Explore
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/#events">Events</a></li>
+                        <li><a class="dropdown-item" href="{% url "teams" %}">Teams</a></li>
+                        <li><a class="dropdown-item" href="/#testimonial">Testimonial</a></li>
+                        <li><a class="dropdown-item" href="/#gallery">Gallery</a></li>
+                    </ul>
+                </div> 
+                {% comment %} <a href="#teams" class="nav-item nav-link">Teams</a> {% endcomment %}
+                <a href="#contact" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="{% url "donation" %}" class="btn rounded-pill py-2 px-4 ms-lg-4">Support Us</a>
+        </div>
+    </nav>
+</div>

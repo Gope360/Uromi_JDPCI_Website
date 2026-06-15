@@ -1,0 +1,19 @@
+<!-- Subscribe Start -->
+<div class="container-fluid subscribe py-5">
+    <div class="container text-center py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="subscribe-title px-3">Subscribe</h5>
+            <h1 class="text-white mb-4">Our Newsletter</h1>
+            <p class="text-white mb-5">Stay updated on the latest trends, exclusive offers, and exciting news! Don't miss out on valuable insights and special promotions. Subscribe now for a dose of curated content delivered straight to your inbox.</p>
+            <div class="position-relative mx-auto">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="subscription_form">
+                    {{ subscription_form.email }}
+                    <button type="submit" class="btn rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

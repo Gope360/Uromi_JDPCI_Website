@@ -1,0 +1,176 @@
+{% extends "Events/base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% load compress %}
+
+
+        
+
+        {% block content %}
+        {% include "Events/navbar2.html" %}
+
+        <!-- Team Start -->
+        <div id="teams" class="container-fluid guide mt-5 py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Team</h5>
+                    <h1 class="mb-0">Meet Our Team</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guide-item">
+                            <div class="guide-img">
+                                <div class="guide-img-efects">
+                                    <img src="{% static "img/ED.jpg" %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                </div>
+                                <div class="guide-icon rounded-pill p-2">
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="guide-title text-center rounded-bottom p-4">
+                                <div class="guide-title-inner">
+                                    <h4 class="mt-3">Fidelis Arhedo</h4>
+                                    <p class="mb-0">Executive Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guide-item">
+                            <div class="guide-img">
+                                <div class="guide-img-efects">
+                                    <img src="{% static "img/AED.jpeg" %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                </div>
+                                <div class="guide-icon rounded-pill p-2">
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="guide-title text-center rounded-bottom p-4">
+                                <div class="guide-title-inner">
+                                    <h4 class="mt-3">Fergouson Ukpebor</h4>
+                                    <p class="mb-0">Assitant Executive Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guide-item">
+                            <div class="guide-img">
+                                <div class="guide-img-efects">
+                                    <img src="{% static "img/DOP.jpg" %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                </div>
+                                <div class="guide-icon rounded-pill p-2">
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="guide-title text-center rounded-bottom p-4">
+                                <div class="guide-title-inner">
+                                    <h4 class="mt-3">Michael Iyoriobhe</h4>
+                                    <p class="mb-0">Director of Programs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guide-item">
+                            <div class="guide-img">
+                                <div class="guide-img-efects">
+                                    <img src="{% static "img/HR.jpg" %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                </div>
+                                <div class="guide-icon rounded-pill p-2">
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="guide-title text-center rounded-bottom p-4">
+                                <div class="guide-title-inner">
+                                    <h4 class="mt-3">Harriet Erhabor</h4>
+                                    <p class="mb-0">Admin Secretary</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 mt-5">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="guide-item">
+                            <div class="guide-img">
+                                <div class="guide-img-efects">
+                                    <img src="{% static "img/FIN-M.jpg" %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                </div>
+                                <div class="guide-icon rounded-pill p-2">
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <div class="guide-title text-center rounded-bottom p-4">
+                                <div class="guide-title-inner">
+                                    <h4 class="mt-3">Maxwell Agbonmwanre</h4>
+                                    <p class="mb-0">Finance Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-6 col-lg-3">-->
+                    <!--    <div class="guide-item">-->
+                    <!--        <div class="guide-img">-->
+                    <!--            <div class="guide-img-efects">-->
+                    <!--                <img src="img/AED.jpeg" class="img-fluid w-100 rounded-top" alt="Image">-->
+                    <!--            </div>-->
+                    <!--            <div class="guide-icon rounded-pill p-2">-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--        <div class="guide-title text-center rounded-bottom p-4">-->
+                    <!--            <div class="guide-title-inner">-->
+                    <!--                <h4 class="mt-3">Fergouson Ukpebor</h4>-->
+                    <!--                <p class="mb-0">Assitant Executive Director</p>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6 col-lg-3">-->
+                    <!--    <div class="guide-item">-->
+                    <!--        <div class="guide-img">-->
+                    <!--            <div class="guide-img-efects">-->
+                    <!--                <img src="img/DOP.jpg" class="img-fluid w-100 rounded-top" alt="Image">-->
+                    <!--            </div>-->
+                    <!--            <div class="guide-icon rounded-pill p-2">-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>-->
+                    <!--                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--        <div class="guide-title text-center rounded-bottom p-4">-->
+                    <!--            <div class="guide-title-inner">-->
+                    <!--                <h4 class="mt-3">Michael Iyoriobhe</h4>-->
+                    <!--                <p class="mb-0">Director of Programs</p>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    
+                </div>
+            </div>
+        </div> 
+        <!-- Team End -->
+
+        {% include "Events/copyright.html" %}
+        {% endblock content %}

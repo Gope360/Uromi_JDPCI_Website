@@ -1,0 +1,52 @@
+<!-- thematic_area Start -->
+<div id="thematic-area" class="container-fluid destination py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Thematic Areas</h5>
+            <h1 class="mb-0">Local Situations and Trends</h1>
+            {% comment %} <p class="mb-0">
+                Explore the opportunities and challenges in justice and peace, community development, and support for the less privileged, 
+                within the 5 Local Government Areas of Edo Central Senatorial District, highlighting the dynamics shaping our efforts 
+                and the impact we aim to achieve.
+            </p> {% endcomment %}
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                {% for thematic_area in thematic_areas %}
+                <li class="nav-item">
+                    <a class="d-flex py-1 mx-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-{{ forloop.counter }}">
+                        <span class="text-dark" style="width: 150px;">{{ thematic_area.name }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content">
+                <!-- Thematic Area Tabs -->
+                {% for thematic_area in thematic_areas %}
+                <div id="tab-{{ forloop.counter }}" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        {% for program in thematic_area.programs.all %}
+                        <div class="col-lg-4">
+                            <div class="destination-img">
+                                <img class="img-fluid rounded w-100" src="{{ program.image.url }}" alt="{{ program.title }}" style="width: 100px; height: 250px; object-fit: cover;">
+                                <div class="destination-overlay p-4">
+                                    <h4 class="text-white mb-2 mt-3">{{ program.title }}</h4>
+                                    <p class="text-white">{{ program.description }}</p>
+                                    {% comment %} <a href="#" class="btn-hover text-white">Learn More <i class="fa fa-arrow-right ms-2"></i></a> {% endcomment %}
+                                </div>
+                                <div class="search-icon">
+                                    <a href="{{ program.image.url }}" data-lightbox="program-{{ forloop.counter }}">
+                                        <i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- thematic_area End -->

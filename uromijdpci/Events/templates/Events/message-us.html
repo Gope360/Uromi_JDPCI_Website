@@ -1,0 +1,34 @@
+<!-- Message Us Section -->
+<div class="container-fluid message-us py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h5 class="section-message-title pe-3">Contact Us</h5>
+                <h1 class="text-dark mb-4">Connect with Our Team</h1>
+                <p class="text-dark mb-4">Have questions or need assistance? Feel free to reach out. Our dedicated team is here to provide you with the support and information you need to make a positive impact in our community.
+                </p>
+                <p class="text-dark mb-4">Whether you have inquiries about our initiatives, need assistance with community projects, or simply want to connect – we'd love to hear from you! Your engagement is crucial for the success of our mission.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-dark mb-3">Drop Us a Message</h1>
+                <p class="text-dark mb-4">We welcome your inquiries and feedback. Feel free to send us a message, and our team will respond promptly.</p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="message_form">
+                    <div class="form-group mb-3">
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 px-5">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Message Us Section End -->
